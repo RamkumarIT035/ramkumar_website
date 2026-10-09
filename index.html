@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramkumar M | Freelance Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Ramkumar M, a Freelance Full-Stack Developer specializing in building high-performance web applications, robust backends, and scalable digital solutions for clients.">
+    <meta name="keywords" content="Ramkumar M, Freelance Developer, Full-Stack Developer, Web Development, React, Node.js, Freelance Web Engineer">
+    <meta name="author" content="Ramkumar M">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            cursor: none;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* --- Custom Cursor --- */
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #38bdf8;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, transform 0.1s ease-out;
+        }
+
+        #cursor-glow {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out;
+        }
+
+        /* --- Theme Variables --- */
+        :root, .light {
+            --bg-primary: #f0f9ff;
+            --text-primary: #0f172a;
+            --text-secondary: #374151;
+            --card-bg: #ffffff;
+            --card-border: rgba(56, 189, 248, 0.15);
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --nav-bg: rgba(255, 255, 255, 0.7);
+            --nav-border: rgba(56, 189, 248, 0.1);
+            --logoloop-fadeColor: #f0f9ff;
+            --edu-shadow: rgba(56, 189, 248, 0.05);
+            --typewriter-gradient: linear-gradient(to right, #1d4ed8, #0284c7, #0e7490);
+            --cursor-color: #0284c7;
+        }
+
+        .dark {
+            --bg-primary: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --card-bg: #0b0e14;
+            --card-border: rgba(56, 189, 248, 0.3);
+            --accent-glow: rgba(56, 189, 248, 0.35);
+            --nav-bg: rgba(0, 0, 0, 0.7);
+            --nav-border: rgba(56, 189, 248, 0.2);
+            --logoloop-fadeColor: #000000;
+            --edu-shadow: rgba(56, 189, 248, 0.2);
+            --typewriter-gradient: linear-gradient(to right, #38bdf8, #60a5fa, #22d3ee);
+            --cursor-color: #38bdf8;
+        }
+
+        /* --- Theme Helper Classes --- */
+        .themed-nav {
+            background-color: var(--nav-bg) !important;
+            border-bottom: 1px solid var(--nav-border) !important;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .themed-text-secondary {
+            color: var(--text-secondary) !important;
+            transition: color 0.4s ease;
+        }
+
+        .themed-card {
+            background-color: var(--card-bg) !important;
+            border-color: var(--card-border) !important;
+            color: var(--text-primary) !important;
+            box-shadow: 0 10px 30px var(--edu-shadow) !important;
+            transition: all 0.4s ease;
+        }
+
+        .themed-card:hover {
+            border-color: #38bdf8 !important;
+        }
+
+        .themed-resume-bg {
+            background-color: var(--edu-shadow) !important;
+            transition: background-color 0.4s ease;
+        }
+
+        /* --- Profile Image --- */
+        .profile-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: #0b0e14;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            animation: profile-morph 8s ease-in-out infinite alternate;
+        }
+
+        .light .profile-wrapper {
+            background: #0b0e14;
+        }
+
+        /* Spinning Gradient Border */
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(from 0deg, #38bdf8, #2563eb, #06b6d4, #38bdf8);
+            animation: border-rotate 6s linear infinite;
+            z-index: -2;
+            opacity: 0.7;
+            transition: opacity 0.5s ease;
+        }
+
+        .profile-wrapper:hover::before {
+            opacity: 1;
+            animation-duration: 3s;
+        }
+
+        .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background: #0b0e14;
+            z-index: -1;
+            transition: background-color 0.4s ease;
+            animation: profile-morph 8s ease-in-out infinite alternate;
+        }
+
+        .light .profile-wrapper::after {
+            background: #0b0e14;
+        }
+
+        .profile-wrapper:hover {
+            transform: scale(1.03);
+        }
+
+        .profile-round {
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            object-fit: cover;
+            object-position: top;
+            z-index: 2;
+            transition: transform 0.5s ease;
+            animation: profile-morph 8s ease-in-out infinite alternate;
+        }
+
+        .profile-wrapper:hover .profile-round {
+            transform: scale(1.05);
+        }
+
+        /* --- Sound Wave Visualizer --- */
+        .voice-visualizer {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+            transition: transform 0.1s ease;
+        }
+
+        .wave-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(168, 85, 247, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+            animation: profile-morph 8s ease-in-out infinite alternate;
+        }
+
+        .speaking .wave-ring {
+            animation: profile-morph 8s ease-in-out infinite alternate, sound-wave-pulse 2s infinite linear;
+        }
+
+        .speaking .wave-ring:nth-child(1) {
+            animation-delay: 0s, 0s;
+        }
+
+        .speaking .wave-ring:nth-child(2) {
+            animation-delay: 0s, 0.6s;
+        }
+
+        .speaking .wave-ring:nth-child(3) {
+            animation-delay: 0s, 1.2s;
+        }
+
+        @keyframes sound-wave-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+                border-color: rgba(99, 102, 241, 0.6);
+            }
+            50% {
+                border-color: rgba(168, 85, 247, 0.5);
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+                border-color: rgba(236, 72, 153, 0);
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0);
+            }
+        }
+
+        /* --- Colorful Floating & Morphing Blobs --- */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: blob-float 18s infinite ease-in-out alternate;
+        }
+
+        @keyframes blob-float {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            }
+            33% {
+                transform: translate(50px, -70px) scale(1.15) rotate(120deg);
+                border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+            }
+            66% {
+                transform: translate(-40px, 40px) scale(0.9) rotate(240deg);
+                border-radius: 28% 72% 37% 63% / 51% 69% 31% 69%;
+            }
+            100% {
+                transform: translate(0, 0) scale(1) rotate(360deg);
+                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            }
+        }
+
+        @keyframes border-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes profile-morph {
+            0% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 45% 55% 65% 35% / 50% 60% 40% 50%;
+            }
+            100% {
+                border-radius: 55% 45% 35% 65% / 60% 40% 60% 40%;
+            }
+        }
+
+        /* --- Shifting Gradient Text Animation --- */
+        .animated-gradient-text {
+            background-size: 200% auto;
+            animation: text-shine 4s linear infinite;
+        }
+
+        @keyframes text-shine {
+            0% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* --- Button Shimmer Effect --- */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(25deg);
+            transition: none;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .btn-shimmer:hover::after {
+            opacity: 1;
+            left: 130%;
+            transition: all 0.8s ease-in-out;
+        }
+
+        /* --- Skill Icon Colors --- */
+        .skill-html:hover {
+            filter: drop-shadow(0 0 15px #e34c26);
+        }
+
+        .skill-css:hover {
+            filter: drop-shadow(0 0 15px #264de4);
+        }
+
+        .skill-js:hover {
+            filter: drop-shadow(0 0 15px #f7df1e);
+        }
+
+        .skill-react:hover {
+            filter: drop-shadow(0 0 15px #61dbfb);
+        }
+
+        .skill-node:hover {
+            filter: drop-shadow(0 0 15px #3c873a);
+        }
+
+        .skill-dart:hover {
+            filter: drop-shadow(0 0 15px #00b4ab);
+        }
+
+        /* --- Click Ripple --- */
+        .ripple {
+            position: fixed;
+            border: 2px solid #22c55e;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: ripple-out 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes ripple-out {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            to {
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        .float-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* --- Text Reveal --- */
+        .text-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            transform: translateX(-100%);
+            animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        @keyframes reveal {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes card-blink {
+            0%, 100% {
+                border-color: #38bdf8;
+                box-shadow: 0 30px 60px rgba(56, 189, 248, 0.35);
+            }
+            50% {
+                border-color: #06b6d4;
+                box-shadow: 0 30px 60px rgba(6, 182, 212, 0.1);
+            }
+        }
+
+        .project-card {
+            transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.1s ease;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .light .project-card {
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .project-card:hover {
+            animation: card-blink 1.2s infinite ease-in-out;
+        }
+
+        .project-card:active {
+            animation: card-blink 0.4s infinite ease-in-out;
+        }
+
+        /* --- 3D Retro/Cyber Grid Background --- */
+        .grid-3d-bg {
+            perspective: 1000px;
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+            background: transparent;
+            transition: opacity 0.5s ease;
+        }
+
+        .grid-lines {
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            position: absolute;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: rotateX(65deg) translateZ(0);
+            transform-origin: center center;
+            opacity: 0.6;
+        }
+
+        .light .grid-lines {
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+            opacity: 0.45;
+        }
+
+        /* --- 3D Tag Sphere Container --- */
+        .sphere-container {
+            perspective: 1000px;
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            height: 550px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+        }
+
+        .sphere-container:active {
+            cursor: grabbing;
+        }
+
+        .sphere-tag {
+            position: absolute;
+            transform-style: preserve-3d;
+            will-change: transform, opacity;
+            transition: transform 0.1s ease, opacity 0.2s ease;
+            user-select: none;
+        }
+
+        /* --- Smooth Scroll Indicator --- */
+        .scroll-indicator {
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--text-primary);
+            opacity: 0.5;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--text-primary);
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: scroll-dot 2s infinite;
+        }
+
+        @keyframes scroll-dot {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 0);
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+        }
+        /* --- Resume FAB --- */
+        .resume-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background: linear-gradient(to right, #38bdf8, #2563eb);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .resume-fab:hover {
+            width: 180px;
+            transform: translateY(-5px);
+        }
+
+        .resume-fab span {
+            display: none;
+            margin-left: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .resume-fab:hover span {
+            display: inline;
+        }
+
+        /* --- WebGL Galaxy Background Canvas --- */
+        #galaxy-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-color: transparent;
+        }
+
+        /* --- LogoLoop Toolkit Marquee --- */
+        .logoloop {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0;
+            --logoloop-gap: 60px;
+            --logoloop-logoHeight: 60px;
+            --logoloop-fadeColor: var(--logoloop-fadeColor);
+        }
+
+        .logoloop__track {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+            user-select: none;
+            position: relative;
+            z-index: 0;
+        }
+
+        .logoloop__list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .logoloop__item {
+            flex: 0 0 auto;
+            margin-right: var(--logoloop-gap);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .logoloop__item:hover {
+            transform: scale(1.15);
+        }
+
+        .logoloop__icon {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+
+        .logoloop__item:hover .logoloop__icon {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.12);
+        }
+
+        .logoloop__title {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #0f172a;
+            opacity: 0.6;
+            transition: opacity 0.3s, color 0.3s;
+        }
+
+        .logoloop__item:hover .logoloop__title {
+            opacity: 1;
+        }
+
+        .logoloop--fade::before,
+        .logoloop--fade::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: clamp(40px, 15%, 200px);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .logoloop--fade::before {
+            left: 0;
+            background: linear-gradient(
+                to right,
+                var(--logoloop-fadeColor) 0%,
+                rgba(0, 0, 0, 0) 100%
+            );
+        }
+
+        .logoloop--fade::after {
+            right: 0;
+            background: linear-gradient(
+                to left,
+                var(--logoloop-fadeColor) 0%,
+                rgba(0, 0, 0, 0) 100%
+            );
+        }
+
+
+
+        /* --- Hero Section Background --- */
+        .hero-section-bg {
+            position: relative;
+            background-image:
+                linear-gradient(to bottom, rgba(2, 8, 23, 0.68), rgba(15, 23, 42, 0.88)),
+                url('bag.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .light .hero-section-bg {
+            background-image:
+                linear-gradient(to bottom, rgba(240, 249, 255, 0.62), rgba(240, 249, 255, 0.8)),
+                url('bag.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom-color: rgba(14, 165, 233, 0.14);
+        }
+
+        #typing-content {
+            background-image: var(--typewriter-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        #typing-cursor {
+            color: var(--cursor-color);
+        }
+
+    </style>
+</head>
+
+<body class="dark">
+    <!-- 3D RETRO GRID BACKGROUND -->
+    <div class="grid-3d-bg">
+        <div class="grid-lines" id="grid-lines"></div>
+    </div>
+    <div id="cursor-glow"></div>
+
+    <a href="ramkumar_cv.pdf" download="RAMKUMAR_M_Resume" class="resume-fab" data-aos="fade-left" data-aos-delay="1500">
+        <i class="fas fa-file-pdf text-2xl"></i>
+        <span>DOWNLOAD CV</span>
+    </a>
+
+    <nav class="fixed w-full z-50 backdrop-blur-md py-4 themed-nav">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-sky-600">RAMKUMAR M</h1>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-8 mr-6 font-medium opacity-70">
+                    <a href="#projects" class="hover:text-sky-600 transition">Work</a>
+                    <a href="#skills" class="hover:text-sky-600 transition">Skills</a>
+                </div>
+                <button id="theme-toggle" class="text-sky-600 hover:text-sky-500 text-xl transition focus:outline-none" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="#contact"
+                    class="bg-sky-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-sky-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section-bg min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+        <div class="blob top-[-10%] left-[-10%]"
+            style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);">
+        </div>
+        <div class="blob bottom-[-10%] right-[-10%]"
+            style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%); animation-delay: -5s;">
+        </div>
+
+        <div data-aos="zoom-out" data-aos-duration="1500"
+            class="flex flex-col md:flex-row items-center gap-16 max-w-6xl z-10">
+            <!-- LEFT IMAGE -->
+            <div class="relative group">
+                <div id="voice-visualizer-container" class="voice-visualizer">
+                    <div class="wave-ring"></div>
+                    <div class="wave-ring"></div>
+                    <div class="wave-ring"></div>
+                    <div class="profile-wrapper relative z-10">
+                        <img src="ramkumar.jpeg" class="profile-round" alt="Profile">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="text-center md:text-left">
+                <h4 class="text-6xl md:text-7xl font-black mb-4 tracking-tighter" data-aos="fade-right"
+                    data-aos-delay="200">
+                    <span id="typing-content"
+                        class="animated-gradient-text"></span><span id="typing-cursor" class="ml-1">_</span>
+                </h4>
+
+                <p class="text-xl md:text-2xl opacity-80 themed-text-secondary max-w-xl mb-8 leading-relaxed" data-aos="fade-right"
+                    data-aos-delay="400">
+                    A passionate Web Developer dedicated to transforming ideas into <span
+                        class="text-sky-600 font-bold">interactive</span>, <span
+                        class="text-sky-600 font-bold">user-friendly</span>, and visually <span
+                        class="text-sky-600 font-bold">engaging</span> websites.
+                </p>
+
+                <div class="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#projects"
+                        class="px-10 py-4 bg-sky-500 text-white rounded-2xl font-bold hover:bg-sky-600 transition-all hover:scale-105 shadow-xl shadow-sky-500/20 btn-shimmer">
+                        View My Work
+                    </a>
+                    <a href="ramkumar_cv.pdf" download="RAMKUMAR_M_Resume"
+                        class="px-10 py-4 border-2 border-sky-500 text-sky-500 rounded-2xl font-bold hover:bg-sky-500 hover:text-white transition-all hover:scale-105 btn-shimmer">
+                        <i class="fas fa-download mr-2"></i>Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4"
+            data-aos="fade-up" data-aos-delay="1000">
+            <span class="text-sm opacity-40 font-bold tracking-widest uppercase">Scroll Down</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+            <h3 class="text-4xl font-black tracking-tight" data-aos="fade-right">SELECTED WORKS</h3>
+            <div class="flex flex-wrap gap-4" data-aos="fade-left">
+                <button onclick="filterProjects('all', this)" class="filter-btn active px-6 py-2 rounded-full border border-sky-500/30 font-bold hover:bg-sky-500 hover:text-white transition bg-sky-500 text-white">All</button>
+                <button onclick="filterProjects('web', this)" class="filter-btn px-6 py-2 rounded-full border border-sky-500/30 font-bold hover:bg-sky-500 hover:text-white transition">Web Apps</button>
+                <button onclick="filterProjects('tool', this)" class="filter-btn px-6 py-2 rounded-full border border-sky-500/30 font-bold hover:bg-sky-500 hover:text-white transition">Tools</button>
+                <button onclick="filterProjects('edu', this)" class="filter-btn px-6 py-2 rounded-full border border-sky-500/30 font-bold hover:bg-sky-500 hover:text-white transition">Academy</button>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-grid">
+            <!-- Project: Lunch Pass -->
+            <a href="https://mei-lunch-uuil-31veobmve-rams-projects-ff72e4d2.vercel.app/login" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item edu" data-aos="fade-up"
+                data-aos-delay="100">
+                <img src="mei lunch.jpeg" alt="Lunch Pass" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500"></div>
+                <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Student Management</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Lunch Pass</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Digitized records for 500+ students</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+
+            <!-- Project: Transport Management -->
+            <a href="https://college-transport-management.vercel.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item edu" data-aos="fade-up"
+                data-aos-delay="150">
+                <img src="transport.jpeg" alt="Transport Management" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500"></div>
+                <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Logistics</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Transport Management</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Optimized routes for 15+ college buses</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+
+            <!-- Project: Turf Time -->
+            <a href="https://cricketturf.vercel.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item edu" data-aos="fade-up"
+                data-aos-delay="200">
+                <img src="TURF..jpeg" alt="Turf Time" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500"></div>
+                <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Sports Facility</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Turf Time</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Improved booking and scheduling experience</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+
+            <!-- Project: Local Business Marketplace -->
+            <a href="https://local-business-marketplace.vercel.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item edu" data-aos="fade-up"
+                data-aos-delay="250">
+                <img src="local.jpeg" alt="Local Marketplace" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500"></div>
+                <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Local Discovery</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Shop Identification</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Easier discovery of nearby shops and services</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://cricketleaguesbyrk.netlify.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item web" data-aos="fade-up"
+                data-aos-delay="100">
+                <img src="CRIC.jfif" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Web Application</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Cricket Leagues</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Reduced fetch latency by 40%</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://kudumbammart.netlify.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item web" data-aos="fade-up"
+                data-aos-delay="200">
+                <img src="KUDU.jfif" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Full Stack Solution</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Kudumbam Mart</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Integrated Node.js & MongoDB for 50+ orders daily</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://cricket-scorer--mcramkumar77.replit.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item tool" data-aos="fade-up"
+                data-aos-delay="300">
+                <img src="SCR.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Sports App</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Cricket Scorer</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Real-time scoring with offline sync</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://sci-cal55.netlify.app" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item tool" data-aos="fade-up"
+                data-aos-delay="400">
+                <img src="CAL.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Tool</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Scientific Calculator</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: High-precision calculation engine</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://engineering-career-path.netlify.app" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item edu" data-aos="fade-up"
+                data-aos-delay="500">
+                <img src="engi.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Education</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Career Path</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Guided 200+ engineering aspirants</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+            <a href="https://github.com/mcram2008-commits/flight-ticket-booking" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item web" data-aos="fade-up"
+                data-aos-delay="600">
+                <img src="ticket.avif" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">Booking System</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">Flight Booking</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Real-time API simulation for 10+ routes</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+
+            <a href="https://ai-pill-identifier-system.vercel.app/" target="_blank"
+                class="group relative overflow-hidden rounded-3xl h-[400px] shadow-2xl project-card project-item web" data-aos="fade-up"
+                data-aos-delay="650">
+                <img src="ai-pill-placeholder.svg" alt="AI Pill Identifier System" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <p class="text-sky-400 font-bold mb-2">AI Healthcare App</p>
+                    <h4 class="text-2xl font-bold text-white mb-4">AI Pill Identifier</h4>
+                    <p class="text-xs text-white/60 mb-2">Impact: Smart pill recognition with an accessible web experience</p>
+                    <span class="inline-flex items-center text-white font-bold">View Live <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i></span>
+                </div>
+            </a>
+   
+    </section>
+
+    <section id="skills" class="py-32 max-w-6xl mx-auto px-6 overflow-hidden">
+        <h3 class="text-center text-4xl font-black mb-20 tracking-tight" data-aos="fade-up">MY TOOLKIT</h3>
+        
+        <div class="logoloop logoloop--fade" id="logo-loop-container">
+            <div class="logoloop__track" id="logo-loop-track">
+                <!-- Copy 1 -->
+                <ul class="logoloop__list">
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-html"><i class="devicon-html5-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-orange-500 transition">HTML</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-css" style="animation-delay: 0.2s;"><i class="devicon-css3-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-500 transition">CSS</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-js" style="animation-delay: 0.4s;"><i class="devicon-javascript-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-yellow-400 transition">JavaScript</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-react" style="animation-delay: 0.6s;"><i class="devicon-react-original colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-cyan-400 transition">React.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-node" style="animation-delay: 0.8s;"><i class="devicon-nodejs-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-sky-500 transition">Node.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-dart" style="animation-delay: 1s;"><i class="devicon-dart-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-400 transition">Dart</p>
+                    </li>
+                </ul>
+                <!-- Copy 2 -->
+                <ul class="logoloop__list" aria-hidden="true">
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-html"><i class="devicon-html5-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-orange-500 transition">HTML</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-css" style="animation-delay: 0.2s;"><i class="devicon-css3-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-500 transition">CSS</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-js" style="animation-delay: 0.4s;"><i class="devicon-javascript-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-yellow-400 transition">JavaScript</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-react" style="animation-delay: 0.6s;"><i class="devicon-react-original colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-cyan-400 transition">React.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-node" style="animation-delay: 0.8s;"><i class="devicon-nodejs-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-sky-500 transition">Node.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-dart" style="animation-delay: 1s;"><i class="devicon-dart-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-400 transition">Dart</p>
+                    </li>
+                </ul>
+                <!-- Copy 3 -->
+                <ul class="logoloop__list" aria-hidden="true">
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-html"><i class="devicon-html5-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-orange-500 transition">HTML</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-css" style="animation-delay: 0.2s;"><i class="devicon-css3-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-500 transition">CSS</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-js" style="animation-delay: 0.4s;"><i class="devicon-javascript-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-yellow-400 transition">JavaScript</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-react" style="animation-delay: 0.6s;"><i class="devicon-react-original colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-cyan-400 transition">React.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-node" style="animation-delay: 0.8s;"><i class="devicon-nodejs-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-sky-500 transition">Node.js</p>
+                    </li>
+                    <li class="logoloop__item group">
+                        <div class="logoloop__icon float-icon skill-dart" style="animation-delay: 1s;"><i class="devicon-dart-plain colored text-5xl"></i></div>
+                        <p class="logoloop__title group-hover:text-blue-400 transition">Dart</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+
+    <section id="education" class="py-24 max-w-4xl mx-auto px-6">
+        <h3 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Education</h3>
+        <div class="space-y-8">
+            <div data-aos="fade-left"
+                class="p-8 rounded-2xl transition themed-card">
+                <span class="text-sky-600 font-bold">2023 — 2027</span>
+                <h4 class="text-2xl font-bold mt-1">B.Tech-Information Technology</h4>
+                <p class="opacity-60">Mahendra Institute of Technology</p>
+                <p>CGPA-8.43</p>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200"
+                class="p-8 rounded-2xl transition themed-card">
+                <span class="text-sky-600 font-bold">2022-2023</span>
+                <h4 class="text-2xl font-bold mt-1">HSE</h4>
+                <p class="opacity-60">Government Higher Sec School</p>
+                <p>Overall percentage-79.8%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="download-resume" class="py-24 themed-resume-bg">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-4xl font-black mb-6" data-aos="fade-up"> Resume</h3>
+            <p class="text-xl opacity-60 mb-10" data-aos="fade-up" data-aos-delay="100">Download my CV </p>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <a href="ramkumar_cv.pdf" download="RAMKUMAR_M_Resume"
+                    class="inline-flex items-center bg-sky-500 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-sky-600 transition-all hover:scale-105 shadow-2xl shadow-sky-500/20">
+                    <i class="fas fa-file-pdf mr-3"></i> DOWNLOAD RESUME
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
+        <h3 class="text-5xl font-black text-center mb-16" data-aos="fade-up">Get In Touch</h3>
+        
+        <div class="flex justify-center">
+            <div data-aos="fade-up" class="text-center">
+                <h4 class="text-2xl font-bold mb-6">Let's discuss your project</h4>
+                <p class="opacity-60 mb-10 leading-relaxed max-w-lg mx-auto">I'm currently available for freelance work and interesting projects. If you have an idea you'd like to bring to life, let's talk!</p>
+                
+                <div class="flex flex-col items-center gap-6">
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-sky-500/10 rounded-full flex items-center justify-center group-hover:bg-sky-600 transition">
+                            <i class="fas fa-envelope text-sky-500 group-hover:text-white"></i>
+                        </div>
+                        <span class="opacity-80">mcram2008@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-6 mt-12 text-3xl">
+                    <a href="https://www.instagram.com/__ram____42?igsh=ejF0d2RoMnJybm5z" target="_blank"
+                        class="hover:text-pink-500 transition-all hover:scale-110"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/ramkumar-m-99b815296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" class="hover:text-blue-600 transition-all hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mcram2008-commits" target="_blank" class="hover:text-sky-600 transition-all hover:scale-110"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center opacity-40 text-sm">
+        &copy; 2026 Developer Portfolio | Designed with Passion
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- Theme Switcher Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+        
+        function applyTheme(theme) {
+            document.body.classList.remove('dark', 'light');
+            document.body.classList.add(theme);
+            localStorage.setItem('theme', theme);
+            if (themeIcon) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                }
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark'; // default to dark
+        applyTheme(savedTheme);
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+                applyTheme(currentTheme);
+            });
+        }
+
+        AOS.init({ duration: 1000, once: false });
+
+        // --- GSAP 3D Scroll Entrances for Sections ---
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('section').forEach(section => {
+                if (section.id && section.id !== 'hero-section-bg') {
+                    gsap.fromTo(section, 
+                        {
+                            opacity: 0,
+                            rotationX: 12,
+                            transformPerspective: 1000,
+                            z: -80,
+                            y: 80
+                        },
+                        {
+                            opacity: 1,
+                            rotationX: 0,
+                            z: 0,
+                            y: 0,
+                            duration: 1.2,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 85%',
+                                end: 'top 55%',
+                                toggleActions: 'play none none none',
+                                once: true
+                            }
+                        }
+                    );
+                }
+            });
+        }
+
+        // --- 3D Grid Infinite Scroll and Mouse/Scroll velocity reaction ---
+        const gridLines = document.getElementById('grid-lines');
+        let gridY = 0;
+        let gridSpeed = 0.5;
+        let targetSpeed = 0.5;
+        let lastScrollY = window.scrollY;
+
+        function animateGrid() {
+            const currentScrollY = window.scrollY;
+            const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+            lastScrollY = currentScrollY;
+
+            targetSpeed = 0.5 + scrollDelta * 0.15;
+            gridSpeed += (targetSpeed - gridSpeed) * 0.1;
+            targetSpeed += (0.5 - targetSpeed) * 0.08;
+
+            gridY += gridSpeed;
+            if (gridLines) {
+                gridLines.style.backgroundPosition = `0px ${gridY}px`;
+            }
+            requestAnimationFrame(animateGrid);
+        }
+        animateGrid();
+
+        // --- 3D Hover Tilt on Project Cards ---
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const rotateX = -(y / (rect.height / 2)) * 12;
+                const rotateY = (x / (rect.width / 2)) * 12;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                
+                let glare = card.querySelector('.project-glare');
+                if (!glare) {
+                    glare = document.createElement('div');
+                    glare.className = 'project-glare absolute inset-0 pointer-events-none z-30 transition-opacity duration-300';
+                    glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 80%)';
+                    card.appendChild(glare);
+                }
+                const percentageX = (e.clientX - rect.left) / rect.width * 100;
+                const percentageY = (e.clientY - rect.top) / rect.height * 100;
+                glare.style.background = `radial-gradient(circle at ${percentageX}% ${percentageY}%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)`;
+                glare.style.opacity = '1';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                const glare = card.querySelector('.project-glare');
+                if (glare) glare.style.opacity = '0';
+            });
+        });
+
+
+
+
+
+        // --- 3D Hover Tilt on Contact Card ---
+        const contactCard = document.querySelector('#contact .text-center');
+        if (contactCard) {
+            contactCard.addEventListener('mousemove', (e) => {
+                const rect = contactCard.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const rotateX = -(y / (rect.height / 2)) * 8;
+                const rotateY = (x / (rect.width / 2)) * 8;
+                contactCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            });
+            contactCard.addEventListener('mouseleave', () => {
+                contactCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+
+        // --- 3D Card Tilt Effect on Profile Wrapper ---
+        const voiceContainer = document.getElementById('voice-visualizer-container');
+        if (voiceContainer) {
+            voiceContainer.addEventListener('mousemove', (e) => {
+                const rect = voiceContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const rotateX = -(y / (rect.height / 2)) * 15;
+                const rotateY = (x / (rect.width / 2)) * 15;
+                
+                voiceContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+            });
+
+            voiceContainer.addEventListener('mouseleave', () => {
+                voiceContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+
+
+
+        const dot = document.getElementById('cursor-dot');
+        const glow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+            glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px';
+        });
+
+        window.addEventListener('mousedown', (e) => {
+            const r = document.createElement('div');
+            r.className = 'ripple'; r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px';
+            document.body.appendChild(r); setTimeout(() => r.remove(), 600);
+            dot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        });
+        window.addEventListener('mouseup', () => dot.style.transform = 'translate(-50%, -50%) scale(1)');
+
+
+
+        // --- Projects Filter & 3D Tilt Effect ---
+        function filterProjects(category, btn) {
+            const items = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(b => b.classList.remove('bg-green-600', 'text-white'));
+            btn.classList.add('bg-green-600', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // --- 3D Hover Tilt & Glare Effect for Project Cards ---
+        (function() {
+            const cards = document.querySelectorAll('#projects-grid .project-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const rotateX = -(y / (rect.height / 2)) * 12;
+                    const rotateY = (x / (rect.width / 2)) * 12;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    
+                    let glare = card.querySelector('.project-glare');
+                    if (!glare) {
+                        glare = document.createElement('div');
+                        glare.className = 'project-glare absolute inset-0 pointer-events-none z-30 transition-opacity duration-300';
+                        glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 80%)';
+                        card.appendChild(glare);
+                    }
+                    const percentageX = (e.clientX - rect.left) / rect.width * 100;
+                    const percentageY = (e.clientY - rect.top) / rect.height * 100;
+                    glare.style.background = `radial-gradient(circle at ${percentageX}% ${percentageY}%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)`;
+                    glare.style.opacity = '1';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                    const glare = card.querySelector('.project-glare');
+                    if (glare) glare.style.opacity = '0';
+                });
+            });
+        })();
+
+        document.querySelectorAll('a, button, input, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => dot.style.transform = 'translate(-50%, -50%) scale(6)');
+            el.addEventListener('mouseleave', () => dot.style.transform = 'translate(-50%, -50%) scale(1)');
+        });
+
+
+
+        // --- GSAP-Powered TextType Typewriter Animation ---
+        (function() {
+            const contentEl = document.getElementById('typing-content');
+            const cursorEl = document.getElementById('typing-cursor');
+            if (!contentEl || !cursorEl) return;
+
+            // Sentences to cycle through
+            const texts = [
+                "HI, I'M RAMKUMAR M",
+                "WELCOME TO MY PORTFOLIO!"
+            ];
+            
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let timeoutId = null;
+
+            // Configurable speeds (matching parameters provided in request)
+            const typingSpeed = 75;      // Speed of typing characters
+            const deletingSpeed = 50;    // Speed of deleting characters
+            const pauseDuration = 1500;  // Pause before deleting sentence
+
+            // Blinking cursor effect powered by GSAP
+            gsap.set(cursorEl, { opacity: 1 });
+            gsap.to(cursorEl, {
+                opacity: 0,
+                duration: 0.5,           // cursorBlinkDuration = 0.5
+                repeat: -1,
+                yoyo: true,
+                ease: 'power2.inOut'
+            });
+
+            function runTypewriter() {
+                const currentText = texts[textIndex];
+                
+                if (isDeleting) {
+                    if (charIndex > 0) {
+                        charIndex--;
+                        contentEl.textContent = currentText.substring(0, charIndex);
+                        timeoutId = setTimeout(runTypewriter, deletingSpeed);
+                    } else {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % texts.length;
+                        timeoutId = setTimeout(runTypewriter, 300); // Short delay before typing the next phrase
+                    }
+                } else {
+                    if (charIndex < currentText.length) {
+                        charIndex++;
+                        contentEl.textContent = currentText.substring(0, charIndex);
+                        timeoutId = setTimeout(runTypewriter, typingSpeed);
+                    } else {
+                        isDeleting = true;
+                        timeoutId = setTimeout(runTypewriter, pauseDuration);
+                    }
+                }
+            }
+
+            // Start typing
+            setTimeout(runTypewriter, 1000);
+        })();
+
+        // --- Toolkit LogoLoop Marquee Animation ---
+        (function() {
+            const track = document.getElementById('logo-loop-track');
+            const container = document.getElementById('logo-loop-container');
+            if (!track || !container) return;
+
+            const firstList = track.querySelector('.logoloop__list');
+            if (!firstList) return;
+
+            let isHovered = false;
+            let offset = 0;
+            let velocity = 100; // Speed: 100px/s
+            let currentVelocity = 100;
+            const smoothTau = 0.25; // ANIMATION_CONFIG.SMOOTH_TAU = 0.25
+            
+            container.addEventListener('mouseenter', () => isHovered = true);
+            container.addEventListener('mouseleave', () => isHovered = false);
+
+            let lastTime = null;
+
+            function animate(timestamp) {
+                if (lastTime === null) {
+                    lastTime = timestamp;
+                    requestAnimationFrame(animate);
+                    return;
+                }
+
+                const deltaTime = (timestamp - lastTime) / 1000;
+                lastTime = timestamp;
+
+                const seqWidth = firstList.getBoundingClientRect().width;
+                if (seqWidth > 0) {
+                    // Decelerate to 0 when hovered, accelerate back to 100 when mouse leaves
+                    const target = isHovered ? 0 : velocity;
+                    const easing = 1 - Math.exp(-deltaTime / smoothTau);
+                    currentVelocity += (target - currentVelocity) * easing;
+
+                    offset += currentVelocity * deltaTime;
+                    offset = ((offset % seqWidth) + seqWidth) % seqWidth;
+
+                    track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+        })();
+
+        // AI Voice Text-to-Speech (TTS) with Male Voice (Autoplay on User Interaction)
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let hasSpokenAuto = false;
+        
+        function getMaleVoice() {
+            if (!synth) return null;
+            const voices = synth.getVoices();
+            const maleKeywords = ['david', 'microsoft mark', 'google uk english male', 'google us english male', 'ravi', 'daniel', 'thomas', 'oliver', 'james', 'male', 'guy', 'en-us-standard-b', 'en-gb-standard-b'];
+            
+            for (const key of maleKeywords) {
+                const voice = voices.find(v => v.name.toLowerCase().includes(key) && v.lang.startsWith('en'));
+                if (voice) return voice;
+            }
+            
+            const david = voices.find(v => v.name.includes('David'));
+            if (david) return david;
+            
+            const enVoice = voices.find(v => v.lang.startsWith('en'));
+            if (enVoice) return enVoice;
+            
+            return voices[0];
+        }
+        
+        function speak() {
+            if (!synth) return;
+
+            // Wait if voices are not loaded yet (common in Chrome/Safari)
+            const voices = synth.getVoices();
+            if (voices.length === 0) {
+                synth.addEventListener('voiceschanged', function onVoicesLoaded() {
+                    speak();
+                }, { once: true });
+                return;
+            }
+
+            try {
+                // Cancel any current speaking state
+                synth.cancel();
+                
+                // Delay speech execution slightly so Chrome clears the audio thread queue
+                setTimeout(() => {
+                    const introText = "Hi, I'm Ramkumar M. A passionate Web Developer dedicated to transforming ideas into interactive, user-friendly, and engaging websites.";
+                    utterance = new SpeechSynthesisUtterance(introText);
+                    
+                    const maleVoice = getMaleVoice();
+                    if (maleVoice) {
+                        utterance.voice = maleVoice;
+                    }
+                    
+                    utterance.pitch = 0.85; // Lower pitch for masculine tone
+                    utterance.rate = 0.95;  // Natural speech rate
+
+                    // Visualizer activation bindings
+                    const container = document.getElementById('voice-visualizer-container');
+                    utterance.onstart = () => {
+                        if (container) container.classList.add('speaking');
+                    };
+                    utterance.onend = () => {
+                        if (container) container.classList.remove('speaking');
+                    };
+                    utterance.onerror = () => {
+                        if (container) container.classList.remove('speaking');
+                    };
+                    
+                    synth.speak(utterance);
+                }, 120);
+            } catch (e) {
+                console.error("SpeechSynthesis speak error: ", e);
+            }
+        }
+        
+        function speakAuto() {
+            if (hasSpokenAuto) return;
+            // Only speak if user is at the top/hero section
+            if (window.scrollY < 400) {
+                hasSpokenAuto = true;
+                speak();
+                removeAutoSpeakListeners();
+            }
+        }
+
+        function removeAutoSpeakListeners() {
+            ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
+                document.removeEventListener(evt, speakAuto);
+            });
+        }
+        
+        // Stop speaking when user exits page or changes tab
+        window.addEventListener('beforeunload', () => {
+            if (synth) synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && synth) {
+                synth.cancel();
+            }
+        });
+        
+        // Trigger pre-fetching of voices
+        if (typeof speechSynthesis !== 'undefined') {
+            synth.getVoices();
+            
+            // Bind real user activation events to bypass browser autoplay blocker.
+            // Do NOT call speakAuto() automatically on load to prevent Chrome autoplay blocker from locking the speech synthesis queue.
+            ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
+                document.addEventListener(evt, speakAuto, { passive: true });
+            });
+        }
+
+        // Initialize voices asynchronously for Chrome/Safari compatibility
+        if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = () => {
+                synth.getVoices();
+            };
+        }
+    </script>
+</body>
+
+</html>
